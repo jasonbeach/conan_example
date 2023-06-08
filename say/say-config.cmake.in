@@ -1,0 +1,14 @@
+get_filename_component(SAY_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+include(CMakeFindDependencyMacro)
+
+# place instructions for finding dependencies of this repo here for example:
+
+find_dependency(fmt REQUIRED)
+find_dependency(Eigen3 REQUIRED)
+
+
+if(NOT TARGET ns::say)
+    include("${SAY_CMAKE_DIR}/say-targets.cmake")
+endif()
+
+set(SAY_LIBRARIES ns::say)
